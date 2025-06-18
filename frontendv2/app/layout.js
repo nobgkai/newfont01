@@ -1,4 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Head from "next/head";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,7 +24,51 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {/* ✅ Navbar */}
+        <header className="bg-white shadow-md sticky top-0 z-50">
+          <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            {/* โลโก้ + รูปภาพ */}
+            <div className="flex items-center gap-3">
+              <img
+                src="./ikay.jpg" // ✅ เปลี่ยนชื่อไฟล์ตามที่คุณมีใน /public
+                alt="Logo"
+                className="w-10 h-10 rounded-full shadow-md hover:scale-110 transition-transform duration-300"
+              />
+              <span className="text-xl font-bold text-indigo-700">NongKai</span>
+            </div>
+
+            {/* ลิงก์เมนู */}
+            <nav className="flex gap-6 text-gray-700 font-medium text-lg">
+              <Link
+                href="/"
+                className="hover:text-indigo-500 transition-colors duration-200"
+              >
+                Home
+              </Link>
+              <Link
+                href="/about"
+                className="hover:text-indigo-500 transition-colors duration-200"
+              >
+                About
+              </Link>
+              <Link
+                href="/contact"
+                className="hover:text-indigo-500 transition-colors duration-200"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/favorite"
+                className="hover:text-indigo-500 transition-colors duration-200"
+              >
+                Favorite
+              </Link>
+            </nav>
+          </div>
+        </header>
+
+        {/* ✅ เนื้อหา */}
+        <main className="p-6 max-w-4xl mx-auto">{children}</main>
       </body>
     </html>
   );
