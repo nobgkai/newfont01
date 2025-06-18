@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
                 About
               </Link>
               <Link
-                href="/contact"
+                href="./contact"
                 className="hover:text-indigo-500 transition-colors duration-200"
               >
                 Contact
